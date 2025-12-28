@@ -1,68 +1,89 @@
+"use client";
+
+import { useEffect, useRef } from "react";
+
 export default function Timeline() {
+    const itemsRef = useRef<HTMLDivElement[]>([]);
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add(
+                            "opacity-100",
+                            "translate-y-0"
+                        );
+                    }
+                });
+            },
+            { threshold: 0.15 }
+        );
+
+        itemsRef.current.forEach((el) => el && observer.observe(el));
+        return () => observer.disconnect();
+    }, []);
+
+    const events = [
+        { time: "12.00pm", title: "Introduction and Welcome Address." },
+        { time: "12.10-12.20pm", title: "Address by Chief Guest" },
+        { time: "12.20-12.30pm", title: "Online Introduction to IEEE by Mr. Saptarshi Ghosh." },
+        { time: "12.30-12.45pm", title: "Session 1 Begins." },
+        { time: "12.55-1.15pm", title: "Session 2 Begins." },
+        { time: "2.00-2.30pm", title: "COMSOC Session." },
+        { time: "2.45-3.30pm", title: "Break and Refreshments" },
+        { time: "3.45-4.15pm", title: "Game 1." },
+        { time: "4.30-5.00pm", title: "Game 2." },
+        { time: "5.30-6.00pm", title: "Concluding Address." },
+    ];
+
     return (
-        <div className=" ocean-bg min-h-screen flex flex-col bg-gradient-to-b from-[#003f5c] via-[#046b8a] to-[#05a2c2] text-white">
-            <h2 className="text-center font-extrabold text-4xl lg:text-5xl pt-24 pb-4 text-[#a9e8ff] drop-shadow-lg tracking-wide">
+        <div className="ocean-bg min-h-screen flex flex-col bg-gradient-to-b from-[#003f5c] via-[#046b8a] to-[#05a2c2] text-white overflow-hidden">
+            <h2 className="text-center font-extrabold text-4xl lg:text-5xl pt-24 pb-10 text-[#a9e8ff] drop-shadow-lg tracking-wide">
                 TIMELINE
             </h2>
 
-            <div className="relative max-w-7xl mx-auto pt-24 pb-24 flex-1">
-                <div className="relative">
+            <div className="relative max-w-7xl mx-auto px-6 pt-16 pb-28 flex-1">
+                {/* Vertical timeline line */}
+                <div className="absolute top-0 bottom-0 left-10 w-[4px] bg-gradient-to-b from-transparent via-[#a9e8ff] to-transparent opacity-60" />
 
-                    
-                    <div className="absolute inset-0 ml-8 w-[4px] bg-gradient-to-b from-transparent via-[#a9e8ff] to-transparent opacity-60" />
-
-                    <div className="space-y-20">
-                        {[
-                            {
-                                time: '12-1.00pm',
-                                title: 'Freshman to Founder, Journey with IEEE JUSB: Saptarshi Pani.',
-                            },
-                            { time: '1.00-2.00pm', title: 'Break' },
-                            {
-                                time: '2.00-2.30pm',
-                                title: 'General Address by VC, Jadavpur University and Chairperson IEEE Kolkata Section.',
-                            },
-                            { time: '2.30-3.15pm', title: 'Web Dev Session.' },
-                            { time: '3.15-4.00pm', title: 'Gen AI session.' },
-                            {
-                                time: '4.00-4.30pm',
-                                title: 'Career Development with IEEE by Saptarshi Ghosh.',
-                            },
-                            { time: '4.30-4.45pm', title: 'Refreshments' },
-                            {
-                                time: '5.00-5.45pm',
-                                title: 'Infinitieee and Prize Distribution.',
-                            },
-                        ].map((event, index) => (
-                            <div key={index} className="flex justify-start gap-10">
-
-                                <div className="flex flex-col md:flex-row items-center relative z-10">
-                                    
-                                    {/* Ocean node */}
-                                    <div className="h-10 w-10 rounded-full bg-white/20 backdrop-blur-sm shadow-lg shadow-[#022c3d]/60 flex items-center justify-center absolute left-3">
-                                        <div className="h-4 w-4 rounded-full bg-[#00d8ff] border border-white/80 shadow-sm" />
-                                    </div>
-
-                                    <div className="hidden md:block text-xl md:pl-20 md:text-2xl font-bold text-[#d9faff]">
-                                        {event.time}
-                                    </div>
-                                </div>
-
-                                <div className="relative pl-20 pr-4 w-full">
-                                    <div className="md:hidden block text-lg mb-4 text-left font-[800] text-[#d9faff]">
-                                        {event.time}
-                                    </div>
-
-                                    <div>
-                                        <h2 className="text-white text-2xl md:text-3xl font-medium mb-8 drop-shadow-md">
-                                            {event.title}
-                                        </h2>
-                                    </div>
+                <div className="space-y-24">
+                    {events.map((event, index) => (
+                        <div
+                            key={index}
+                            ref={(el) => {
+                                if (el) itemsRef.current[index] = el;
+                            }}
+                            className="relative flex gap-10 opacity-0 translate-y-10 transition-all duration-700 ease-out"
+                        >
+                            {/* Timeline Node */}
+                            <div className="relative z-10">
+                                <div className="h-12 w-12 rounded-full bg-[#003a52] border border-[#00d8ff]/40 shadow-lg shadow-[#00d8ff]/30 flex items-center justify-center">
+                                    <div className="h-4 w-4 rounded-full bg-[#00d8ff] shadow-md" />
                                 </div>
                             </div>
-                        ))}
 
-                    </div>
+                            {/* Card Wrapper (contrast layer) */}
+                            <div className="relative w-full group">
+                                {/* Glow layer */}
+                                <div className="absolute -inset-[2px] rounded-2xl bg-gradient-to-r from-[#00d8ff]/40 to-[#a9e8ff]/30 blur opacity-0 group-hover:opacity-100 transition duration-300" />
+
+                                {/* Actual card */}
+                                <div className="relative bg-[#022c3d]/80 backdrop-blur-xl rounded-2xl px-7 py-6 border border-[#a9e8ff]/20 shadow-xl transition-all duration-300 hover:-translate-y-2">
+                                    <div className="text-lg md:text-xl font-extrabold text-[#a9e8ff] mb-2 tracking-wide">
+                                        {event.time}
+                                    </div>
+
+                                    <h3 className="text-white text-2xl md:text-3xl font-medium leading-snug">
+                                        {event.title}
+                                    </h3>
+
+                                    {/* Accent bar */}
+                                    <div className="mt-5 h-[3px] w-14 bg-[#00d8ff] rounded-full opacity-80 group-hover:w-28 transition-all duration-300" />
+                                </div>
+                            </div>
+                        </div>
+                    ))}
                 </div>
             </div>
         </div>

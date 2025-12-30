@@ -25,7 +25,7 @@ export default function Venue() {
 
             <div className="flex flex-col mt-10 md:flex-row">
                 <div className="m-5 p-0 flex justify-center">
-                    <LoadScript googleMapsApiKey={process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY || ''}>
+                    {/* <LoadScript googleMapsApiKey={process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY || ''}>
                         <GoogleMap
                             mapContainerStyle={containerStyle}
                             center={center}
@@ -33,7 +33,16 @@ export default function Venue() {
                         >
                             <Marker position={center} />
                         </GoogleMap>
-                    </LoadScript>
+                    </LoadScript> */}
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3686.1560221207365!2d88.36862681153707!3d22.49832863560191!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a0271236069f175%3A0xcee7537188e8fa9c!2sDr.%20Triguna%20Sen%20Auditorium!5e0!3m2!1sen!2sin!4v1767108407210!5m2!1sen!2sin"
+                        width="600"
+                        height="450"
+                        style={{ border: 0 }}
+                        allowFullScreen
+                        loading="lazy"
+                        referrerPolicy="no-referrer-when-downgrade"
+                    ></iframe>
                 </div>
 
                 <div className="m-5 justify-center w-full">

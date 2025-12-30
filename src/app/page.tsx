@@ -11,7 +11,7 @@ export default function Home() {
 	return (
 		<div className="ocean-bg min-h-screen flex flex-col items-center p-8 text-center bg-gradient-to-b from-[#003f5c] via-[#046b8a] to-[#05a2c2] text-white">
 
-			{/* <main className="flex flex-col gap-4 font-bold text-xl sm:text-2xl items-center" style={{ alignItems: "center", height: "200px" }}>
+			<main className="flex flex-col gap-4 font-bold text-xl sm:text-2xl items-center" style={{ alignItems: "center", height: "200px" }}>
 				<Image
 					src="/ieeejusb.png"
 					alt="IEEE JUSB Logo"
@@ -46,8 +46,8 @@ export default function Home() {
 			</div>
 			<p className="mt-10 text-xl font-semibold text-center text-gray-1	00 dark:text-gray-200">
 				<span className="text-gradient">15.01.2026</span> @Triguna Sen Auditorium
-			</p> */}
-			<>
+			</p>
+			{/* <>
 				<HeroSection />
 				<AboutSection />
 				<TimelineSection />
@@ -55,7 +55,7 @@ export default function Home() {
 				<EventsSection />
 				<SponsorSection />
 				<VenueSection />
-			</>
+			</> */}
 
 		</div>
 	);

@@ -47,10 +47,10 @@ export default function Login() {
 				headers: { 'Content-Type': 'application/json' },
 				body: JSON.stringify(data),
 			});
-	
+
 			let result;
 			const contentType = response.headers.get("content-type");
-	
+
 			if (contentType && contentType.includes("application/json")) {
 				result = await response.json();
 			} else {
@@ -58,7 +58,7 @@ export default function Login() {
 				console.warn("Unexpected response type:", contentType, "Response text:", text);
 				result = { error: "Unexpected response format. Please try again later." };
 			}
-	
+
 			if (response.ok) {
 				console.log("Login successful:", result);
 				localStorage.setItem('user', JSON.stringify(result.user));
@@ -74,19 +74,20 @@ export default function Login() {
 		}
 		setLoading(false);
 	};
-	
+
 
 	return (
-		<div className="flex min-h-screen items-center justify-center mt-10 px-4 md:px-8 lg:px-16 bg-transparent text-white">
+		<div className="flex min-h-screen items-center justify-center px-4 md:px-8 lg:px-16 ocean-bg text-white">
 			<div className="hidden lg:flex flex-col text-center justify-center pt-12 pb-12 w-1/2">
 				<h1 className="text-5xl font-extrabold mb-4">From dark pits of oblivion to the hallows of glory,</h1>
-				<h1 className="text-5xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-purple-500 via-blue-500 to-pink-500">Begin this galactic event with a bang!</h1>
+				<h1 className="text-5xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-cyan-200 via-blue-300 to-purple-400 animate-pulse drop-shadow-[0_0_8px_rgba(0,0,0,0.6)]">Begin this galactic event with a bang!</h1>
 			</div>
 
 			<div className="w-full sm:w-96 lg:w-1/2 flex justify-center">
-				<Card className="w-full max-w-md shadow-md backdrop-blur-3xl bg-transparent text-white">
+				<Card className="w-full max-w-md shadow-2xl border border-white/30 
+	backdrop-blur-2xl bg-white/20 hover:bg-white/30 transition-all duration-500">
 					<CardHeader>
-						<CardTitle className="text-center text-2xl font-bold">Login</CardTitle>
+						<CardTitle className="text-center text-3xl font-extrabold tracking-wide drop-shadow-lg">Login</CardTitle>
 					</CardHeader>
 					<CardContent>
 						<Form {...useForm<LoginData>()}>
@@ -108,6 +109,7 @@ export default function Login() {
 														validate: (value) =>
 															validator.isEmail(value) || "Invalid email format",
 													})}
+													className="bg-white/30 text-black placeholder-white/80 border-white/40 focus:border-cyan-300"
 												/>
 											</FormControl>
 											<FormMessage>{errors.email?.message}</FormMessage>
@@ -123,7 +125,6 @@ export default function Login() {
 											<FormLabel>Password</FormLabel>
 											<FormControl>
 												<div className="relative">
-
 													<Input
 														{...field}
 														type={showPassword ? "text" : "password"}
@@ -132,10 +133,11 @@ export default function Login() {
 															required: "Password is required",
 															minLength: { value: 6, message: "Must be at least 6 characters" },
 														})}
+														className="bg-white/30 text-black placeholder-white/80 border-white/40 focus:border-cyan-300"
 													/>
 													<button
 														type="button"
-														className="absolute inset-y-0 right-2 flex items-center text-gray-400 hover:text-gray-200"
+														className="absolute inset-y-0 right-2 flex items-center text-gray-700 hover:text-gray-800"
 														onClick={() => setShowPassword(!showPassword)}
 													>
 														{showPassword ? <AiOutlineEyeInvisible size={20} /> : <AiOutlineEye size={20} />}

@@ -1,19 +1,22 @@
 "use client";
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { FaLinkedin, FaGithub, FaTwitter } from 'react-icons/fa';
+import { FaLinkedin, FaTwitter, FaFacebook, FaInstagram } from 'react-icons/fa';
 
 export default function Footer() {
     return (
-        <div className="text-center ali p-4 bg-background/5 text-gray-500 text-sm">
-            <p>Created by Sarin Sanyal</p>
+        <div className="text-center p-4  bg-[#003f5c]  text-white text-sm">
+            <p>Made with ❤️ by IEEE-JUSB</p>
             <div className="flex justify-center pt-2">
-                <a href="https://www.linkedin.com/in/sarinsanyal" target="_blank" rel="noopener noreferrer" className="mx-2 text-gray-500 hover:text-gray-700">
+                <a href="linkedin.com/company/ieee-ju" target="_blank" rel="noopener noreferrer" className="mx-2 text-white hover:text-gray-200">
                     <FaLinkedin size={20} />
                 </a>
-                <a href="https://github.com/sarinsanyal" target="_blank" rel="noopener noreferrer" className="mx-2 text-gray-500 hover:text-gray-700">
-                    <FaGithub size={20} />
+                <a href="https://www.facebook.com/ieeejusb" target="_blank" rel="noopener noreferrer" className="mx-2 text-white hover:text-gray-200">
+                    <FaFacebook size={20} />
                 </a>
-                <a href="https://twitter.com/sarinsanyal" target="_blank" rel="noopener noreferrer" className="mx-2 text-gray-500 hover:text-gray-700">
+                <a href="https://www.instagram.com/_ieeeju/" target="_blank" rel="noopener noreferrer" className="mx-2 text-white hover:text-gray-200">
+                    <FaInstagram size={20} />
+                </a>
+                <a href="https://x.com/_ieeeju" target="_blank" rel="noopener noreferrer" className="mx-2 text-white hover:text-gray-200">
                     <FaTwitter size={20} />
                 </a>
             </div>

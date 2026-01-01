@@ -9,10 +9,10 @@ export default function Navbar() {
 
   const navItems = [
     { href: "/", label: "Home", icon: <Home size={22} /> },
-    { href: "/about", label: "About", icon: <Info size={22} /> },
-    { href: "/timeline", label: "Timeline", icon: <CalendarDays size={22} /> },
-    { href: "/venue", label: "Venue", icon: <MapPin size={22} /> },
-    { href: "/speakers", label: "Speakers", icon: <Users size={22} /> },
+    { href: "#about", label: "About", icon: <Info size={22} /> },
+    { href: "#timeline", label: "Timeline", icon: <CalendarDays size={22} /> },
+    { href: "#venue", label: "Venue", icon: <MapPin size={22} /> },
+    { href: "#speakers", label: "Speakers", icon: <Users size={22} /> },
   ];
 
   return (

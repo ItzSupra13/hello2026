@@ -100,7 +100,7 @@ export default function Venue() {
                         {/* Additional Info Card */}
                         <div className="bg-gradient-to-br from-[#05a2c2]/20 to-[#046b8a]/20 backdrop-blur-md p-6 rounded-2xl border border-[#a9e8ff]/30 shadow-lg">
                             <p className="text-center text-sm md:text-base text-white/80 italic">
-                                Join us at one of India's most prestigious institutions for an unforgettable experience of innovation and collaboration.
+                                Join us at one of India&apos;s most prestigious institutions for an unforgettable experience of innovation and collaboration.
                             </p>
                         </div>
                     </div>

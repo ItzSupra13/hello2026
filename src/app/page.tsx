@@ -66,7 +66,6 @@ import HeroSection from "@/components/HeroSection";
 import SpeakerSection from "@/components/SpeakerSection";
 import Timeline from "@/components/TimelineSection";
 import Venue from "@/components/VenueSection";
-import Image from "next/image";
 
 export default function Home() {
     return (

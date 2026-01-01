@@ -24,16 +24,20 @@ export default function Venue() {
             <MapPin className="text-white" size={32} />
           </div>
         </div>
-        <h1 className="font-extrabold text-5xl lg:text-6xl text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600 text-center">
-          VENUE
-        </h1>
-        <div className="h-1 w-24 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-full mt-4"></div>
+        <div className="flex flex-col font-extrabold text-5xl lg:text-6xl items-center mb-16 drop-shadow-2xl tracking-wide">
+          <div className="relative">
+            <span className="bg-gradient-to-r from-[#a9e8ff] to-white bg-clip-text text-transparent">
+              SPEAKERS
+            </span>
+            <div className="absolute -bottom-3 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-[#a9e8ff] to-transparent"></div>
+          </div>
+        </div>
       </div>
 
       {/* Main Content */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
         <div className="flex flex-col lg:flex-row gap-8 items-start">
-          
+
           {/* Map Section */}
           <div className="w-full lg:w-1/2">
             <div className="bg-white rounded-2xl shadow-2xl overflow-hidden transform hover:scale-[1.02] transition-transform duration-300">
@@ -54,7 +58,7 @@ export default function Venue() {
 
           {/* Info Section */}
           <div className="w-full lg:w-1/2 space-y-6">
-            
+
             {/* University Name */}
             <div className="text-center lg:text-left">
               <h2 className="text-4xl font-extrabold text-gray-800 mb-2">
@@ -80,7 +84,7 @@ export default function Venue() {
                   </p>
                 </div>
               </div>
-              
+
               <a
                 href="https://maps.google.com/?q=22.4983409862929,88.37120718718914"
                 target="_blank"

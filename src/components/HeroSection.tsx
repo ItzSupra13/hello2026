@@ -18,7 +18,7 @@ export default function HeroSection() {
                     <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#003f5c]/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }}></div>
                 </div>
     
-                <main className="relative z-10 flex flex-col items-center gap-8 max-w-6xl mx-auto">
+                <main className="relative z-10 pt-20 flex flex-col items-center gap-8 max-w-6xl mx-auto">
                     {/* Logo Section */}
                     <div className="flex flex-col items-center gap-4">
                         <div className="relative group">

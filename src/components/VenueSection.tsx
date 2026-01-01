@@ -1,4 +1,6 @@
 "use client"
+/* eslint-disable @typescript-eslint/no-unused-vars */
+
 import React from 'react';
 import { MapPin, Mail, Navigation } from 'lucide-react';
 

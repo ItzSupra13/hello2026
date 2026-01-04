@@ -4,6 +4,7 @@ import { useEffect, useRef } from 'react';
 import { ArrowRight } from 'lucide-react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import Link from 'next/link';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -139,6 +140,7 @@ export default function WhatToExpect() {
                     </div>
                     
                     <div className="mt-auto z-10">
+                    <Link href="/register">
                     <button className="flex items-center gap-2 
                         bg-white text-black 
                         px-5 py-2.5 
@@ -147,10 +149,10 @@ export default function WhatToExpect() {
                         hover:bg-[#8EC5FF]
                         transition-colors duration-300 w-fit"
                     >
-
                         <ArrowRight className="w-5 h-5" />
                         <span>Register!</span>
                       </button>
+                    </Link>
                     </div>
                   </div>
 

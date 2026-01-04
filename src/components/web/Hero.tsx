@@ -5,12 +5,42 @@ import Navbar from './Navbar';
 import { ArrowRight } from 'lucide-react';
 import gsap from 'gsap';
 import Image from "next/image";
+import React from "react";
 
 export default function Hero() {
     const [, setMounted] = useState(false);
     const heroRef = useRef<HTMLDivElement>(null);
     const logoRef = useRef<HTMLDivElement>(null);
+   const [timeLeft, setTimeLeft] = useState({
+        days: 0,
+        hours: 0,
+        minutes: 0,
+        seconds: 0
+    });
 
+    useEffect(() => {
+    // Set target date to June 14, 2026
+    const targetDate = new Date('2026-01-15T12:00:00').getTime();
+
+    const calculateTimeLeft = () => {
+      const now = new Date().getTime();
+      const difference = targetDate - now;
+
+      if (difference > 0) {
+        setTimeLeft({
+          days: Math.floor(difference / (1000 * 60 * 60 * 24)),
+          hours: Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
+          minutes: Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60)),
+          seconds: Math.floor((difference % (1000 * 60)) / 1000)
+        });
+      }
+    };
+
+    calculateTimeLeft(); // Initial call
+    const timer = setInterval(calculateTimeLeft, 1000);
+
+    return () => clearInterval(timer);
+    }, []);
     useEffect(() => {
         setMounted(true);
 
@@ -58,14 +88,18 @@ export default function Hero() {
         return () => ctx.revert();
     }, []);
 
+    const formatTime = (value: number) => {
+        return value < 10 ? `0${value}` : value;
+    };
+
     return (
         <div ref={heroRef} className="relative min-h-screen w-full bg-black overflow-hidden flex flex-col font-sans">
 
             {/* Background Soft Gradients (Blue/Cyan Theme) */}
             <div className="absolute top-[-20%] left-[-10%] w-[70%] h-[70%] bg-[#3B82F6] rounded-full blur-[180px] opacity-[0.15] pointer-events-none"></div>
             <div className="absolute bottom-[10%] right-[-10%] w-[50%] h-[50%] bg-[#1d4ed8] rounded-full blur-[180px] opacity-[0.10] pointer-events-none"></div>
-            <Navbar />
-
+            <Navbar/>
+            
             {/* Main Content Container */}
             <main className="flex-grow w-full max-w-[1800px] mx-auto px-6 md:px-12 py-5 flex flex-col justify-between relative z-10">
 
@@ -93,7 +127,7 @@ export default function Hero() {
                         {/* Line 2 */}
                         <div className="overflow-hidden w-full flex items-center justify-center lg:justify-start gap-4 md:gap-8 flex-wrap">
                             <h1 className="hero-text text-[15vw] lg:text-[10vw] leading-[0.85] font-black tracking-tighter text-white uppercase">
-                                IEEE 2.0&nbsp;&nbsp;
+                                IEEE
                             </h1>
 
                             {/* <div className="hero-text hidden lg:block w-[10vw] h-[2vw] relative mb-4">
@@ -103,7 +137,7 @@ export default function Hero() {
                                 </svg>
                             </div> */}
                             <div className="hero-text hidden lg:block w-[12vw] h-[2.4vw] relative mb-4">
-                                <svg viewBox="0 0 120 24" className="w-full h-full text-[#8EC5FF]">
+                                <svg viewBox="0 0 120 24" className="w-full h-full text-[#8EC5FF] ml-60">
                                     <path
                                         d=" M2 12 
                                             Q 12 4 22 12 
@@ -280,11 +314,30 @@ export default function Hero() {
                 <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-0 items-end pb-8 md:pb-12">
 
                     {/* Bottom Left: Stationary Countdown */}
-                    <div className="hero-ui flex flex-col gap-2 items-center lg:items-start">
-                        <div className="font-mono text-3xl sm:text-4xl md:text-5xl text-white tracking-widest font-bold opacity-90 text-center lg:text-left">
-                            10:10:10
-                        </div>
-                    </div>
+                    <div className="hero-ui flex justify-center lg:justify-start w-full">
+            <div className="flex items-start gap-3 sm:gap-6">
+              {[
+                { value: timeLeft.days, label: 'Days' },
+                { value: timeLeft.hours, label: 'Hrs' },
+                { value: timeLeft.minutes, label: 'Mins' },
+                { value: timeLeft.seconds, label: 'Secs' },
+              ].map((item, index) => (
+                <React.Fragment key={item.label}>
+                  <div className="flex flex-col items-center gap-1 sm:gap-2">
+                    <span className="font-mono text-3xl sm:text-4xl md:text-5xl text-white tracking-widest font-bold leading-none tabular-nums">
+                      {formatTime(item.value)}
+                    </span>
+                    <span className="text-[10px] sm:text-xs font-bold text-gray-500 uppercase tracking-widest">
+                      {item.label}
+                    </span>
+                  </div>
+                  {index < 3 && (
+                    <span className="font-mono text-3xl sm:text-4xl md:text-5xl text-white/30 font-bold leading-none pt-1">:</span>
+                  )}
+                </React.Fragment>
+              ))}
+            </div>
+          </div>
 
                     {/* Bottom Right: CTA Cluster */}
                     <div className="hero-ui flex flex-col items-center lg:items-end gap-8 relative">
@@ -349,7 +402,6 @@ export default function Hero() {
                                     </div>
                                 ))}
                             </div>
-                            <span className="text-white font-mono font-medium text-lg tracking-tight">Join 100s of students</span>
                         </div>
                     </div>
                 </div>

@@ -38,17 +38,17 @@ export default function Timeline() {
   {
     time: "12:30 PM - 12:45 PM",
     type: "session",
-    title: "Session 1 Begins."
+    title: "Session on _ Begins."
   },
   {
     time: "12:55 PM - 1:15 PM",
     type: "session",
-    title: "Session 2 Begins."
+    title: "Session on Prompt Engineering Begins"
   },
   {
     time: "2:00 PM - 2:30 PM",
     type: "session",
-    title: "COMSOC Session."
+    title: "COMSOC Session on Telecom Security"
   },
   {
     time: "2:45 PM - 3:30 PM",
@@ -58,12 +58,21 @@ export default function Timeline() {
   {
     time: "3:45 PM - 4:15 PM",
     type: "game",
-    title: "Game 1."
+    title: "AI-IEEE: Spot the Prompt",
+    description: "Compete in something. Fastest solver takes all.",
+    badges: [
+        { text: "Free Entry", style: "border border-blue-500 text-blue-400" }
+      ]
   },
   {
     time: "4:30 PM - 5:00 PM",
     type: "game",
-    title: "Game 2."
+    title: "Game 2.",
+    description: "Some showdown. Top 3 players win exclusive prizes.",
+    badges: [
+        { text: "Grand Prize 1000/-", style: "bg-gradient-to-r from-blue-500 to-indigo-600 text-white shadow-[0_0_15px_rgba(59,130,246,0.6)]" },
+        { text: "Only Registered Students", style: "border border-blue-500 text-blue-400" }
+      ]
   },
   {
     time: "5:30 PM - 6:00 PM",
@@ -103,7 +112,7 @@ export default function Timeline() {
           
           {/* Left: Date */}
           <div className="flex items-center gap-3">
-             <svg width="24" height="8" viewBox="0 0 40 10" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-6 h-3 text-[#3B82F6]">
+             <svg width="24" height="8" viewBox="0 0 40 10" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-6 h-3 text-[#8EC5FF]">
                 <path d="M1 5C1 5 4.5 1 8.5 5C12.5 9 16 5 16 5C16 5 19.5 1 23.5 5C27.5 9 31 5 31 5C31 5 34.5 1 38.5 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
             <span className="font-bold tracking-widest uppercase text-sm md:text-base">January 15, 2026</span>
@@ -170,7 +179,7 @@ export default function Timeline() {
                         {isGame ? (
                            <Gamepad2 className="w-6 h-6 text-indigo-400" />
                         ) : (
-                           <svg width="20" height="8" viewBox="0 0 40 10" fill="none" className="w-5 h-2 mt-2 text-[#3B82F6]">
+                           <svg width="20" height="8" viewBox="0 0 40 10" fill="none" className="w-5 h-2 mt-2 text-[#8EC5FF]">
                              <path d="M1 5C1 5 4.5 1 8.5 5C12.5 9 16 5 16 5C16 5 19.5 1 23.5 5C27.5 9 31 5 31 5C31 5 34.5 1 38.5 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                            </svg>
                         )}

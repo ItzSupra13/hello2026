@@ -36,7 +36,6 @@ export default function About() {
         const statItems = statsRef.current.children;
         Array.from(statItems).forEach((item) => {
             const numberElement = item.querySelector('.stat-number');
-            const targetValue = parseInt(numberElement?.getAttribute('data-target') || '0');
 
             // Animate the container fade in
             gsap.fromTo(item,
@@ -117,7 +116,7 @@ export default function About() {
 
                         {/* Headline */}
                         <h2 ref={titleRef} className="text-3xl sm:text-1xl md:text-2xl lg:text-3xl font-medium tracking-tight leading-[1.1]">
-                            <span className="inline-block text-gray-400 mr-3">At IEEE JUSB, we're more than just a student chapter - we're a dynamic community of</span>
+                            <span className="inline-block text-gray-400 mr-3">At IEEE JUSB, we&apos;re more than just a student chapter - we&apos;re a dynamic community of</span>
                             <span className="inline-block font-bold text-black mr-3">innovators, creators,</span>
                             <span className="inline-block font-bold text-black mr-3">and problem-solvers</span>
                             <span className="inline-block text-gray-400">committed to driving change through collaboration.</span><span className="text-gray-400"> Founded in 2010 at one of the oldest and most prestigious universities in the country,

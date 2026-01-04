@@ -1,9 +1,9 @@
 "use client"
 
 import { useEffect, useRef } from 'react';
-import { ArrowRight } from 'lucide-react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import Image from 'next/image';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -90,11 +90,14 @@ export default function OurSignatureEvents(){
                     <div key={index} className="flex flex-col gap-6 group">
                         {/* Image Card */}
                         <div className="aspect-[3/4] w-full rounded-2xl overflow-hidden bg-gray-100 relative">
-                            <img 
-                                src={speaker.image} 
+                            <Image
+                                src={speaker.image}
                                 alt={speaker.name}
-                                className="w-full h-full object-cover filter grayscale group-hover:grayscale-0 transition-all duration-500"
+                                fill
+                                sizes="(min-width: 1024px) 50vw, 100vw"
+                                className="object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
                             />
+
                         </div>
                         
                         {/* Speaker Info */}
@@ -108,7 +111,6 @@ export default function OurSignatureEvents(){
                 ))}
              </div>
         </div>
-
       </div>
     </section>
   );

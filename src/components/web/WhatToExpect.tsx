@@ -90,7 +90,7 @@ export default function WhatToExpect() {
                 <svg width="40" height="10" viewBox="0 0 40 10" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-8 h-3 text-blue-900">
                   <path d="M1 5C1 5 4.5 1 8.5 5C12.5 9 16 5 16 5C16 5 19.5 1 23.5 5C27.5 9 31 5 31 5C31 5 34.5 1 38.5 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>
-                <span className="text-sm font-bold tracking-widest uppercase text-blue-950">What's on</span>
+                <span className="text-sm font-bold tracking-widest uppercase text-blue-950">What&apos;s on</span>
             </div>
 
             {/* Right Column: Content */}
@@ -102,7 +102,7 @@ export default function WhatToExpect() {
                   </h2>
                   <div className="lg:max-w-md">
                     <p className="text-xl md:text-2xl text-blue-950/80 leading-relaxed font-medium">
-                      Join us for a day of club oreitation and shi and ghkkkkkkkkkkkkshape what's next. 
+                      Join us for a day of club oreitation and shi and ghkkkkkkkkkkkkshape what&apos;s next. 
                     </p>
                   </div>
                 </div>

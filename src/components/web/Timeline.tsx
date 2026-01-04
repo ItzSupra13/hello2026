@@ -10,7 +10,7 @@ gsap.registerPlugin(ScrollTrigger);
 interface TimelineItem {
   time: string;
   title: string;
-  type: 'keynote' | 'talk' | 'panel' | 'workshop' | 'break' | 'game';
+  type: string;
   description?: string;
   badges?: { text: string; style: string }[];
 }
@@ -20,68 +20,58 @@ export default function Timeline() {
   const listRef = useRef<HTMLDivElement>(null);
 
   const schedule: TimelineItem[] = [
-    {
-      time: "09:00 - 10:00",
-      type: "keynote",
-      title: "The Future Is Collective",
-      description: "Opening remarks on the power of community-driven innovation."
-    },
-    {
-      time: "10:15 - 11:00",
-      type: "talk",
-      title: "Sustainable Growth Without Compromise",
-      description: "How to scale your business while maintaining net-zero goals."
-    },
-    {
-      time: "11:15 - 12:15",
-      type: "panel",
-      title: "Tech for Good: Building with Purpose",
-      description: "Industry leaders discuss the ethical implications of AI."
-    },
-    {
-      time: "12:15 - 13:30",
-      type: "break",
-      title: "Networking Lunch & Refreshments",
-    },
-    {
-      time: "13:30 - 14:30",
-      type: "workshop",
-      title: "Vision Mapping for Sustainable Businesses",
-      description: "Interactive session: Create your 5-year sustainability roadmap."
-    },
-    {
-      time: "14:45 - 15:30",
-      type: "talk",
-      title: "The New Metrics of Success: Impact Over Scale",
-      description: "Redefining KPIs for the modern era."
-    },
-    {
-      time: "16:00 - 17:00",
-      type: "panel",
-      title: "From Solo Founder to Collaborative Ecosystem",
-      description: "Navigating the transition from founder to leader."
-    },
-    {
-      time: "17:30 - 18:30",
-      type: "game",
-      title: "Cyber-Sprint Coding Challenge",
-      description: "Compete in a live algorithmic battle. Fastest solver takes all.",
-      badges: [
-        { text: "Grand Prize $2,000", style: "bg-gradient-to-r from-emerald-400 to-cyan-500 text-black shadow-[0_0_15px_rgba(52,211,153,0.6)]" },
-        { text: "Live Leaderboard", style: "border border-cyan-500 text-cyan-400" }
-      ]
-    },
-    {
-      time: "19:00 - 20:30",
-      type: "game",
-      title: "Neon Nights: VR Tournament",
-      description: "High-octane VR showdown. Top 3 players win exclusive tech gear.",
-      badges: [
-        { text: "Winner takes VR Kit", style: "bg-gradient-to-r from-blue-500 to-indigo-600 text-white shadow-[0_0_15px_rgba(59,130,246,0.6)]" },
-        { text: "Free Entry", style: "border border-blue-500 text-blue-400" }
-      ]
-    }
-  ];
+  {
+    time: "12:00 PM",
+    type: "welcome",
+    title: "Introduction and Welcome Address."
+  },
+  {
+    time: "12:10 PM - 12:20 PM",
+    type: "address",
+    title: "Address by Chief Guest"
+  },
+  {
+    time: "12:20 PM - 12:30 PM",
+    type: "talk",
+    title: "Online Introduction to IEEE by Mr. Saptarshi Ghosh."
+  },
+  {
+    time: "12:30 PM - 12:45 PM",
+    type: "session",
+    title: "Session 1 Begins."
+  },
+  {
+    time: "12:55 PM - 1:15 PM",
+    type: "session",
+    title: "Session 2 Begins."
+  },
+  {
+    time: "2:00 PM - 2:30 PM",
+    type: "session",
+    title: "COMSOC Session."
+  },
+  {
+    time: "2:45 PM - 3:30 PM",
+    type: "break",
+    title: "Break and Refreshments"
+  },
+  {
+    time: "3:45 PM - 4:15 PM",
+    type: "game",
+    title: "Game 1."
+  },
+  {
+    time: "4:30 PM - 5:00 PM",
+    type: "game",
+    title: "Game 2."
+  },
+  {
+    time: "5:30 PM - 6:00 PM",
+    type: "closing",
+    title: "Concluding Address."
+  }
+];
+
 
   useEffect(() => {
     if (!listRef.current) return;

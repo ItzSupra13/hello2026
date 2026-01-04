@@ -7,7 +7,7 @@ import gsap from 'gsap';
 import Image from "next/image";
 
 export default function Hero() {
-    const [mounted, setMounted] = useState(false);
+    const [, setMounted] = useState(false);
     const heroRef = useRef<HTMLDivElement>(null);
     const logoRef = useRef<HTMLDivElement>(null);
 
@@ -345,7 +345,7 @@ export default function Hero() {
                             <div className="flex -space-x-3">
                                 {[1, 2, 3, 4, 5].map((i) => (
                                     <div key={i} className="w-12 h-12 rounded-full border-2 border-black overflow-hidden bg-gray-800 relative z-0 hover:z-10 hover:scale-110 transition-transform duration-200">
-                                        <img src={`https://i.pravatar.cc/150?img=${i + 25}`} alt="Attendee" className="w-full h-full object-cover" />
+                                        <Image src={`https://i.pravatar.cc/150?img=${i + 25}`} alt="Attendee" className="w-full h-full object-cover" width={50} height={50}/>
                                     </div>
                                 ))}
                             </div>

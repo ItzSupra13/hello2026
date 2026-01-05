@@ -3,7 +3,7 @@
 import  { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { Lock, Waves, Compass, Anchor } from 'lucide-react';
+import { Waves, Compass, Anchor } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -49,7 +49,7 @@ export default function Speakers() {
   }, []);
 
   // Placeholder data for teaser
-  const teaserSlots = [<Compass className="w-6 h-6"/>, <Anchor className="w-6 h-6"/> ,<Waves className="w-6 h-6"/>];
+  const teaserSlots = [Compass, Anchor, Waves];
 
   return (
     <section ref={containerRef} className="bg-black text-white py-24 px-6 md:px-12 relative z-20 rounded-b-[2.5rem] md:rounded-b-[4rem] overflow-hidden">
@@ -80,7 +80,9 @@ export default function Speakers() {
 
         {/* Teaser Grid - 3 Columns */}
         <div ref={gridRef} className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
-          {teaserSlots.map((_, index) => (
+          {teaserSlots.map((_, index) => {
+            const Icon = teaserSlots[index];
+            return (
             <div key={index} className="flex flex-col gap-4 group cursor-default">
               
               {/* TEASER POSTER CONTAINER */}
@@ -107,7 +109,7 @@ export default function Speakers() {
                     
                     {/* Locked Icon Container */}
                     <div className="w-16 h-16 rounded-full border border-white/10 bg-white/5 flex items-center justify-center backdrop-blur-sm group-hover:bg-[#3B82F6]/10 group-hover:text-[#3B82F6] group-hover:border-[#3B82F6]/30 transition-all duration-500">
-                        {teaserSlots[index]}
+                        <Icon className="w-6 h-6" />
                     </div>
 
                     {/* Typography */}
@@ -129,7 +131,7 @@ export default function Speakers() {
                 </span>
               </div>
             </div>
-          ))}
+        )})}
         </div>
       </div>
     </section>

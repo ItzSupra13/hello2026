@@ -7,61 +7,8 @@ import gsap from 'gsap';
 import Image from "next/image";
 import React from "react";
 import Link from "next/link";
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from "@/components/ui/tooltip"
 
 export default function Hero() {
-  const goats = [
-    {
-      id: 1,
-      name: "Nazmus Saqib",
-      position: "Chairperson",
-    },
-    {
-      id: 2,
-      name: "Ahnik Purkait",
-      position: "Webmaster",
-    },
-    {
-      id: 3,
-      name: "Rahul Pandey",
-      position: "Tech Lead",
-    },
-    {
-      id: 4,
-      name: "Shashwata Roy",
-      position: "Design Lead",
-    },
-    {
-      id: 5,
-      name: "Khushwant Pilaniwala",
-      position: "Content Lead",
-    },
-    {
-      id: 6,
-      name: "Mayukh Roy",
-      position: "Outreach Lead",
-    },
-    {
-      id: 7,
-      name: "Shaikh Shoaib Ahmed",
-      position: "Logistics Lead",
-    },
-    {
-      id: 8,
-      name: "Akash Bag",
-      position: "CS Chapter Chairperson",
-    },
-    {
-      id: 9,
-      name: "Nilangshu Bhattacharya",
-      position: "CS Chapter Vice-Chairperson",
-    },
-  ]
 
     const [, setMounted] = useState(false);
     const heroRef = useRef<HTMLDivElement>(null);

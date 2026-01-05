@@ -6,12 +6,67 @@ import { ArrowRight } from 'lucide-react';
 import gsap from 'gsap';
 import Image from "next/image";
 import React from "react";
+import Link from "next/link";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip"
 
 export default function Hero() {
+  const goats = [
+    {
+      id: 1,
+      name: "Nazmus Saqib",
+      position: "Chairperson",
+    },
+    {
+      id: 2,
+      name: "Ahnik Purkait",
+      position: "Webmaster",
+    },
+    {
+      id: 3,
+      name: "Rahul Pandey",
+      position: "Tech Lead",
+    },
+    {
+      id: 4,
+      name: "Shashwata Roy",
+      position: "Design Lead",
+    },
+    {
+      id: 5,
+      name: "Khushwant Pilaniwala",
+      position: "Content Lead",
+    },
+    {
+      id: 6,
+      name: "Mayukh Roy",
+      position: "Outreach Lead",
+    },
+    {
+      id: 7,
+      name: "Shaikh Shoaib Ahmed",
+      position: "Logistics Lead",
+    },
+    {
+      id: 8,
+      name: "Akash Bag",
+      position: "CS Chapter Chairperson",
+    },
+    {
+      id: 9,
+      name: "Nilangshu Bhattacharya",
+      position: "CS Chapter Vice-Chairperson",
+    },
+  ]
+
     const [, setMounted] = useState(false);
     const heroRef = useRef<HTMLDivElement>(null);
     const logoRef = useRef<HTMLDivElement>(null);
-   const [timeLeft, setTimeLeft] = useState({
+    const [timeLeft, setTimeLeft] = useState({
         days: 0,
         hours: 0,
         minutes: 0,
@@ -107,7 +162,7 @@ export default function Hero() {
                 <div className="hero-ui w-full flex justify-center lg:justify-start pt-8 md:pt-12">
                     <div className="flex items-center gap-4">
                         <span className="text-lg md:text-2xl font-mono font-medium tracking-wider text-white/90 text-center lg:text-left">
-                            15 JANUARY 2026 | Triguna Sen Auditorium
+                            X JANUARY 2026 | Triguna Sen Auditorium
                         </span>
                     </div>
                 </div>
@@ -158,15 +213,14 @@ export default function Hero() {
                         </div>
 
                         {/* Line 3 */}
-                        <div className="overflow-hidden w-full text-center lg:text-left pb-8 md:pb-12">
-                            <h1 className="hero-text text-[15vw] lg:text-[10vw] leading-[0.85] font-black tracking-tighter uppercase mt-2">
-                                <span className="loader">
-                                    <span>2026</span>
-                                    <span>2026</span>
-                                </span>
-                            </h1>
-                        </div>
-
+                        <div className="overflow-hidden w-full flex justify-center lg:justify-start pb-8 md:pb-10">
+  <h1 className="hero-text text-[15vw] lg:text-[10vw] leading-[0.85] font-black tracking-tighter uppercase mt-2">
+    <span className="loader">
+      <span>2026</span>
+      <span>2026</span>
+    </span>
+  </h1>
+</div>
                     </div>
                     {/* RIGHT: Logo Section */}
                     <div className="flex flex-col items-center lg:items-end gap-4">
@@ -195,119 +249,6 @@ export default function Hero() {
                         </div>
 
                     </div>
-
-
-
-
-                    {/* Custom CSS for text outline */}
-                    <style>{`
-            .font-outline-text {
-               -webkit-text-stroke: 1px #D8B4FE;
-               color: transparent;
-            }
-            @media (min-width: 768px) {
-              .font-outline-text {
-                 -webkit-text-stroke: 2px #D8B4FE;
-              }
-            }
-
-            /* From Uiverse.io by mrhyddenn */ 
-.loader {
-  position: relative;
-  display: inline-grid;
-  place-items: center; /* centers text inside */
-}
-
-.loader span {
-  grid-area: 1 / 1;   /* stack spans on top of each other */
-  letter-spacing: 5px;
-}
-
-/* Outline layer */
-.loader span:nth-child(1) {
-  color: transparent;
-  -webkit-text-stroke: 2px rgb(128, 198, 255);
-}
-
-/* Animated fill layer */
-.loader span:nth-child(2) {
-  color: rgb(128, 198, 255);
-  -webkit-text-stroke: 1px rgb(128, 198, 255);
-  animation: uiverse723 3s ease-in-out infinite;
-}
-
-@keyframes uiverse723 {
-  0%, 100% {
-    clip-path: polygon(0% 45%, 15% 44%, 32% 50%,
-     54% 60%, 70% 61%, 84% 59%, 100% 52%, 100% 100%, 0% 100%);
-  }
-
-  50% {
-    clip-path: polygon(0% 60%, 16% 65%, 34% 66%,
-     51% 62%, 67% 50%, 84% 45%, 100% 46%, 100% 100%, 0% 100%);
-  }
-}
-
-
-.liquid {
-  transform: scaleX(-1);
-}
-
-
-/* liquid button */
-.cta-btn {
-  position: relative;
-  border-radius: 10px;
-}
-
-/* ocean liquid layer */
-.cta-btn .liquid {
-  background-color: #3B82F6; /* deep blue */
-  width: 140%;
-  height: 120%;
-  position: absolute;
-  bottom: -10%;
-  left: -20%;
-  box-shadow:
-    inset 5px -5px 25px #0b254d,
-    inset -5px 0 25px #0b254d;
-  filter: blur(1px);
-}
-
-/* inner liquid blobs */
-.cta-btn .liquid::after,
-.cta-btn .liquid::before {
-  content: '';
-  width: 500px;
-  height: 350px;
-  position: absolute;
-  left: -40px;
-  top: -360px;
-  border-radius: 45%;
-  animation: tide-spin 5s linear infinite;
-}
-
-/* darker tide layer */
-.cta-btn .liquid::after {
-  background: #020617;
-}
-
-/* brighter crest layer */
-.cta-btn .liquid::before {
-  background: #8EC5FF;
-  animation-delay: .4s;
-  border-radius: 40%;
-}
-
-/* smooth loop */
-@keyframes tide-spin {
-  from { transform: rotate(0deg); }
-  to   { transform: rotate(360deg); }
-}
-
-
-
-          `}</style>
                 </div>
 
                 {/* Bottom Section: Countdown & CTA Grid */}
@@ -376,9 +317,9 @@ export default function Hero() {
                             </svg>
                         </div>
 
-
+                        <Link href='/register'>
                         {/* Rectangular Button (Matching Image) */}
-                        <button className="cta-btn group relative overflow-hidden min-w-[320px] w-full md:w-auto px-8 py-6 flex items-center justify-between shadow-2xl border border-white/10 bg-[#0f0f0f] text-white">
+                        <button className="cta-btn group relative overflow-hidden min-w-[320px] w-full md:w-auto px-8 py-6 flex items-center justify-between shadow-2xl border border-white/10 bg-[#0f0f0f] text-white cursor-pointer">
                             {/* liquid layer */}
                             <span className="liquid"></span>
                             {/* button text */}
@@ -391,18 +332,7 @@ export default function Hero() {
                                 <ArrowRight className="w-5 h-5" />
                             </div>
                         </button>
-
-
-                        {/* RSVP Section */}
-                        <div className="flex items-center gap-6">
-                            <div className="flex -space-x-3">
-                                {[1, 2, 3, 4, 5].map((i) => (
-                                    <div key={i} className="w-12 h-12 rounded-full border-2 border-black overflow-hidden bg-gray-800 relative z-0 hover:z-10 hover:scale-110 transition-transform duration-200">
-                                        <Image src={`https://i.pravatar.cc/150?img=${i + 25}`} alt="Attendee" className="w-full h-full object-cover" width={50} height={50}/>
-                                    </div>
-                                ))}
-                            </div>
-                        </div>
+                        </Link>
                     </div>
                 </div>
             </main>

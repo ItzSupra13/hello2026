@@ -37,7 +37,7 @@ export default function OurSignatureEvents(){
     {
       name: "Double // Slash",
       role: "Double Slash, organised by IEEE JUSB is Jadavpur University's first ever offline 24 hour hackathon. Here different tracks are provided for the participants. Double Slash attracts uniqueness and creativity packaged in the form of coding and reasoning. IEEE JUSB is going to soon present Double Slash with a bang, so interested participants may as well start to gear up!",
-      image: "/about/doubleslash4.jpeg"
+      image: "/about/doubleslash4.png"
     },
     {
       name: "Cypher 3331",
@@ -78,7 +78,7 @@ export default function OurSignatureEvents(){
 
              {/* Description */}
              <p className="text-xl text-gray-500 font-medium max-w-sm leading-relaxed">
-                Hear from some of the best minds across technology and sustainability.
+                From mentor-guided hackathons to hands-on workshops – keeping the fire of innovation and learning alive at Jadavpur University.
              </p>
           </div>
         </div>
@@ -89,13 +89,13 @@ export default function OurSignatureEvents(){
                 {speakers.map((speaker, index) => (
                     <div key={index} className="flex flex-col gap-6 group">
                         {/* Image Card */}
-                        <div className="aspect-[3/4] w-full rounded-2xl overflow-hidden bg-gray-100 relative">
+                        <div className="aspect-[4/3] w-full rounded-2xl overflow-hidden bg-gray-100 relative">
                             <Image
                                 src={speaker.image}
                                 alt={speaker.name}
                                 fill
                                 sizes="(min-width: 1024px) 50vw, 100vw"
-                                className="object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
+                                className="object-cover grayscale group-hover:grayscale-0 transition-all duration-500 bg-black"
                             />
 
                         </div>

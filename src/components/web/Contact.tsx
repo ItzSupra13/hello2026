@@ -1,4 +1,5 @@
 import { MapPin, Mail, Navigation } from 'lucide-react';
+import Link from 'next/link'
 
 export default function Contact() {
   return (
@@ -20,15 +21,14 @@ export default function Contact() {
              {/* Map Container */}
              <div className="w-full h-[400px] lg:h-auto min-h-[400px] rounded-3xl overflow-hidden relative bg-white/5 border border-white/10">
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3686.264448529232!2d88.3694033!3d22.4942537!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a027122822a94e9%3A0x6b6311e355c2f0b9!2sDr.%20Triguna%20Sen%20Auditorium!5e0!3m2!1sen!2sin!4v1709999999999!5m2!1sen!2sin"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3686.1560221207365!2d88.36862681153707!3d22.49832863560191!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a0271236069f175%3A0xcee7537188e8fa9c!2sDr.%20Triguna%20Sen%20Auditorium!5e0!3m2!1sen!2sin!4v1767108407210!5m2!1sen!2sin"
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}
                   allowFullScreen
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
-                  className="absolute inset-0"
-                  title="Jadavpur University Map"
+                  className="w-full h-full"
                 ></iframe>
              </div>
 
@@ -49,15 +49,15 @@ export default function Contact() {
                       </div>
                    </div>
                    
-                   <a 
-                     href="https://maps.app.goo.gl/YourMapLinkHere" 
+                   <Link 
+                     href="https://maps.google.com/?q=22.4983409862929,88.37120718718914" 
                      target="_blank" 
                      rel="noreferrer"
                      className="inline-flex items-center justify-center gap-3 bg-[#3b82f6] hover:bg-[#2563eb] text-white px-8 py-4 rounded-xl font-bold transition-all duration-300 hover:shadow-lg w-full sm:w-auto self-start"
                    >
                      <Navigation className="w-5 h-5" />
                      Get Directions
-                   </a>
+                   </Link>
                 </div>
 
                 {/* Contact Card */}
@@ -68,13 +68,12 @@ export default function Contact() {
                       </div>
                       <div>
                          <h3 className="text-2xl font-bold mb-2">Contact Us</h3>
-                         <a href="mailto:jaduniv.ieee@gmail.com" className="text-xl text-gray-400 hover:text-[#3B82F6] transition-colors border-b border-transparent hover:border-[#3B82F6]">
+                         <Link href="mailto:jaduniv.ieee@gmail.com" className="text-xl text-gray-400 hover:text-[#3B82F6] transition-colors border-b border-transparent hover:border-[#3B82F6]">
                             jaduniv.ieee@gmail.com
-                         </a>
+                         </Link>
                       </div>
                    </div>
                 </div>
-
              </div>
           </div>
        </div>

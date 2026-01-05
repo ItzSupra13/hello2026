@@ -54,7 +54,7 @@ export default function Navbar() {
 
         {/* Right Side Action (Desktop) */}
         <div className="hidden md:flex items-center pl-8 border-l border-white/20 h-8">
-          <Link href="#" className="group flex items-center gap-2 text-sm md:text-xs font-bold tracking-widest text-white hover:text-[#8EC5FF] transition-colors uppercase">
+          <Link href="/register" className="group flex items-center gap-2 text-sm md:text-xs font-bold tracking-widest text-white hover:text-[#8EC5FF] transition-colors uppercase">
             <span>Register</span>
           </Link>
         </div>
@@ -83,7 +83,7 @@ export default function Navbar() {
               </Link>
             ))}
             <div className="border-t border-gray-800 pt-4 flex justify-center">
-              <Link href="#" className="flex items-center gap-2 text-white hover:text-[#8EC5FF] font-bold uppercase text-sm tracking-widest">
+              <Link href="/register" className="flex items-center gap-2 text-white hover:text-[#8EC5FF] font-bold uppercase text-sm tracking-widest">
                  Register
               </Link>
             </div>

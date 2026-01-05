@@ -53,20 +53,20 @@ export default function WhatToExpect() {
 
   const features = [
     {
-      title: "Visionary talks",
+      title: "Explore IEEE",
       number: "01",
       description: (
         <>
-          Hear from <span className="font-bold text-black">founders, thinkers,</span> and <span className="font-bold text-black">technologists</span> leading the way in sustainable innovation.
+          Learn what IEEE is about and how it can help you <span className="font-bold text-black">potentially set up your future pathway,</span> from those who&apos;ve also asked these same questions
         </>
       ),
     },
     {
-      title: "Practical workshops",
+      title: "Insightful Sessions",
       number: "02",
       description: (
         <>
-          Roll up your sleeves in interactive sessions focused on <span className="font-bold text-black">real-world tools and strategies.</span>
+        Dive into aspects of the tech domain you may or may not have heard of,  <span className="font-bold text-black">through interactive, insightful sessions!</span>
         </>
       ),
     },
@@ -75,7 +75,7 @@ export default function WhatToExpect() {
       number: "03",
       description: (
         <>
-          Connect with a <span className="font-bold text-black">like-minded community</span> of entrepreneurs, creatives, and changemakers.
+          Connect with a <span className="font-bold text-black">like-minded community</span> of creatives, and tech enthusiasts.
         </>
       ),
     },
@@ -103,7 +103,7 @@ export default function WhatToExpect() {
                   </h2>
                   <div className="lg:max-w-md">
                     <p className="text-xl md:text-2xl text-blue-950/80 leading-relaxed font-medium">
-                      Join us for a day of club oreitation and shi and ghkkkkkkkkkkkkshape what&apos;s next. 
+                      Expect a day packed with exciting sessions on the ever-evolving tech domain, insights of what IEEE has to offer, brainstorming challenges, and more!
                     </p>
                   </div>
                 </div>

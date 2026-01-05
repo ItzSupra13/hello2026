@@ -3,6 +3,7 @@
 
 import React from 'react';
 import { MapPin, Mail, Navigation } from 'lucide-react';
+import Link from 'next/link';
 
 const containerStyle = {
   width: '50vw',
@@ -85,7 +86,7 @@ export default function Venue() {
                 </div>
               </div>
 
-              <a
+              <Link
                 href="https://maps.google.com/?q=22.4983409862929,88.37120718718914"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -93,7 +94,7 @@ export default function Venue() {
               >
                 <Navigation size={20} />
                 Get Directions
-              </a>
+              </Link>
             </div>
 
             {/* Contact Card */}

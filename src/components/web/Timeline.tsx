@@ -92,8 +92,8 @@ export default function Timeline() {
       {
         y: 0,
         opacity: 1,
-        stagger: 0.1,
-        duration: 0.8,
+        stagger: 0.069,
+        duration: 0.6,
         ease: "power2.out",
         scrollTrigger: {
           trigger: listRef.current,
@@ -115,7 +115,7 @@ export default function Timeline() {
              <svg width="24" height="8" viewBox="0 0 40 10" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-6 h-3 text-[#8EC5FF]">
                 <path d="M1 5C1 5 4.5 1 8.5 5C12.5 9 16 5 16 5C16 5 19.5 1 23.5 5C27.5 9 31 5 31 5C31 5 34.5 1 38.5 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
-            <span className="font-bold tracking-widest uppercase text-sm md:text-base">January 15, 2026</span>
+            <span className="font-bold tracking-widest uppercase text-sm md:text-base">January X, 2026</span>
           </div>
 
           {/* Right: Title (Moved from center/left to right) */}
@@ -136,7 +136,7 @@ export default function Timeline() {
               Main Day
             </h3>
             <p className="mt-4 text-gray-400 text-lg font-medium max-w-[200px]">
-              Kicking off with innovation, AI, and community.
+              Kicking off with the future of tech. Win prizes, and interact with the community dedicated to fostering innovation. 
             </p>
           </div>
         </div>

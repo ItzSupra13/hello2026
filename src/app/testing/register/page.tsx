@@ -2,6 +2,7 @@
 
 import { useRef, useEffect, useState } from 'react';
 import { ArrowRight, User, Mail, Briefcase, Ticket } from 'lucide-react';
+import Link from 'next/link';
 
 export default function Register() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -186,10 +187,9 @@ export default function Register() {
                     <span>Complete Registration</span>
                     <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
                 </button>
-                
-                <p className="text-center text-xs text-gray-500 mt-2">
-                    By registering, you agree to our Terms & Conditions.
-                </p>
+                <div className="text-center text-sm text-gray-500 mt-2">
+                    Have an account? <Link href="/testing/login" className="text-white font-bold hover:underline ml-1">Log in</Link>
+                </div>
             </form>
         </div>
       </div>

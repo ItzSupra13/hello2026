@@ -3,6 +3,8 @@
 import { useEffect, useState } from "react";
 import { Card } from "@/components/ui/card";
 import { Scanner } from "@yudiel/react-qr-scanner";
+import { useRouter } from "next/navigation";
+import { toast } from "sonner";
 
 export default function Dashboard() {
     interface User {
@@ -19,6 +21,17 @@ export default function Dashboard() {
     const [verifyingScan, setVerifyingScan] = useState(false); // New state for API call loading
     const [isScanning, setIsScanning] = useState(false);
     const [scanError, setScanError] = useState<string | null>(null); // Replaces qrResult
+    const router = useRouter();
+
+    const handleLogout = async () => {
+        try {
+          await fetch("/api/logout", { method: "POST" });
+          toast.success("Logged out successfully!")
+          router.replace("/login");
+        } catch {
+          alert("Logout failed. Please try again.");
+        }
+    };
 
     // Fetch user data
     useEffect(() => {
@@ -91,6 +104,14 @@ export default function Dashboard() {
         <div className="ocean-bg text-black justify-items-center text-center p-8 min-h-screen">
             <div className="text-2xl md:text-4xl lg:text-5xl items-center mt-20 font-extrabold">
                 Dashboard
+            </div>
+            <div className="flex justify-end w-full max-w-5xl mt-4">
+                <button
+                  onClick={handleLogout}
+                  className="border border-white px-4 py-2 rounded-lg font-semibold hover:bg-white/10 transition-all"
+                >
+                  Logout
+                </button>
             </div>
 
             {loading ? (

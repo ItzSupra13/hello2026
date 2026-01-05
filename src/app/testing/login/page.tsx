@@ -2,6 +2,7 @@
 
 import { useRef, useEffect, useState } from 'react';
 import { ArrowRight, Mail, Lock } from 'lucide-react';
+import Link from 'next/link';
 
 export default function Login() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -126,7 +127,7 @@ export default function Login() {
                 <div className="space-y-2">
                     <div className="flex justify-between items-center">
                         <label className="text-xs font-bold uppercase tracking-widest text-gray-500">Password</label>
-                        <a href="#" className="text-xs text-[#3B82F6] hover:text-white transition-colors">Forgot password?</a>
+                        <Link href="#" className="text-xs text-[#3B82F6] hover:text-white transition-colors">Forgot password?</Link>
                     </div>
                     <div className="relative group">
                         <Lock className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-500 group-focus-within:text-white transition-colors" />
@@ -145,9 +146,8 @@ export default function Login() {
                 </button>
                 
                 <div className="text-center text-sm text-gray-500 mt-2">
-                    Don&apos;t have an account? <a href="#" className="text-white font-bold hover:underline">Register now</a>
+                    Don&apos;t have an account? <Link href="/testing/register" className="text-white font-bold hover:underline ml-1">Register now</Link>
                 </div>
-
             </form>
         </div>
 

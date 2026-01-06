@@ -26,7 +26,7 @@ export async function POST(req: NextRequest) {
       { expiresIn: '7d' }
     );
     
-    const response = NextResponse.json({ message: 'Registration successful' });
+    const response = NextResponse.json({ message: 'Login successful' });
 
     response.cookies.set({
       name: 'authToken',

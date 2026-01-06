@@ -1,7 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import connectToDatabase from "@/lib/mongodb";
 import User from "@/models/user";
-import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import { sendRegistrationEmail } from "@/lib/email";
 
@@ -19,15 +18,13 @@ export async function POST(req: NextRequest) {
       );
     }
     
-    const hashedPassword = await bcrypt.hash(password, 10);
-
     const newUser = new User({
       name,
       email,
       phone,
       department,
       year,
-      password: hashedPassword,
+      password,
     });
 
     await newUser.save();
@@ -57,8 +54,8 @@ export async function POST(req: NextRequest) {
     });
 
     return response;
-  } catch (error) {
-    console.log("Error during registration:", error);
+  } catch {
+    // console.log("Error during registration:", error);
     return NextResponse.json(
       { error: "Something went wrong" },
       { status: 500 }

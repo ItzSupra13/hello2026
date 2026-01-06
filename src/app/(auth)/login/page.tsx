@@ -312,7 +312,7 @@ export default function Login() {
   return (
     <section
       ref={sectionRef}
-      className="relative w-full min-h-screen bg-[#020617] text-white flex flex-col items-center justify-center py-24 px-4 md:px-12 overflow-hidden border-t border-white/5"
+      className="relative w-full min-h-screen bg-[#020617] text-white flex flex-col items-center justify-center py-2 px-4 md:px-12 overflow-hidden border-t border-white/5"
     >
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_right,_var(--tw-gradient-stops))] from-indigo-900/10 via-black to-black opacity-60"></div>

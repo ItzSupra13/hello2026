@@ -45,11 +45,11 @@ export default function Timeline() {
     type: "session",
     title: "Session on Prompt Engineering Begins"
   },
-  {
-    time: "2:00 PM - 2:30 PM",
-    type: "session",
-    title: "COMSOC Session on Telecom Security"
-  },
+  // {
+  //   time: "2:00 PM - 2:30 PM",
+  //   type: "session",
+  //   title: "COMSOC Session on Telecom Security"
+  // },
   {
     time: "2:45 PM - 3:30 PM",
     type: "break",
@@ -115,7 +115,7 @@ export default function Timeline() {
              <svg width="24" height="8" viewBox="0 0 40 10" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-6 h-3 text-[#8EC5FF]">
                 <path d="M1 5C1 5 4.5 1 8.5 5C12.5 9 16 5 16 5C16 5 19.5 1 23.5 5C27.5 9 31 5 31 5C31 5 34.5 1 38.5 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
-            <span className="font-bold tracking-widest uppercase text-sm md:text-base">January X, 2026</span>
+            <span className="font-bold tracking-widest uppercase text-sm md:text-base">January 21, 2026</span>
           </div>
 
           {/* Right: Title (Moved from center/left to right) */}

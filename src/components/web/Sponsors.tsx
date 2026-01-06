@@ -43,20 +43,6 @@ export default function Sponsors() {
                 <div ref={rowsRef} className="flex flex-col gap-6 md:gap-8">
                     {/* Row 2: 2 Items */}
                     <div className="flex flex-col md:flex-row gap-6 md:gap-8 w-full">
-                        {/* Sponsor Logo — Image Optimized */}
-                        <div className="logo-pill w-full h-20 md:h-32 border border-dashed border-gray-400 rounded-[3rem] md:rounded-full flex items-center justify-center hover:border-black transition duration-300">
-
-                            <div className="relative w-[70%] h-[65%] flex items-center justify-center">
-                                <Image
-                                    src="/sponsors/comsoc.png"
-                                    alt="Comsoc Logo"
-                                    fill
-                                    priority
-                                    className="object-contain pointer-events-none select-none"
-                                    sizes="(max-width: 768px) 60vw, 30vw"
-                                />
-                            </div>
-                        </div>
                         {/* Sponsor Logo — Text / Icon Combo */}
                         <div className="logo-pill w-full h-20 md:h-32 border border-dashed border-gray-400 rounded-[3rem] md:rounded-full flex items-center justify-center hover:border-black transition duration-300">
                             <div className="relative w-[70%] h-[65%] flex items-center justify-center">

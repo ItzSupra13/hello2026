@@ -363,7 +363,7 @@ export default function Register() {
       const w = f.width + TEXT_GAP * 2;
       const h = f.height + TEXT_GAP * 2;
 
-      setPathD(`M ${x} ${y} L ${x+w} ${y} L ${x+w} ${y+h} L ${x} ${y+h} Z`);
+      setPathD(`M ${x} ${y} L ${x + w} ${y} L ${x + w} ${y + h} L ${x} ${y + h} Z`);
     };
 
     updatePath();
@@ -398,12 +398,12 @@ export default function Register() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data)
       });
-    //   const result = await res.json();
+      //   const result = await res.json();
       if (res.ok) {
-		toast.success("Registration successful! Redirecting to dashboard…")
+        toast.success("Registration successful! Redirecting to dashboard…")
         router.push("/dashboard");
       } else {
-		toast.error("Registration failed. Try submitting again")
+        toast.error("Registration failed. Try submitting again")
       }
     } catch (e) {
       console.error(e);
@@ -420,7 +420,7 @@ export default function Register() {
   return (
     <section
       ref={sectionRef}
-      className="relative w-full min-h-screen bg-[#020617] text-white flex flex-col items-center justify-center py-24 px-4 md:px-12 overflow-hidden"
+      className="relative w-full min-h-screen bg-[#020617] text-white flex flex-col items-center justify-center py-12 px-4 md:px-12 overflow-hidden"
     >
       <div className="absolute inset-0 z-0 hidden md:block">
         <svg width="100%" height="100%" className="overflow-visible">
@@ -590,15 +590,15 @@ export default function Register() {
             {loading ? "Registering..." : "Register"}
             <ArrowRight className="w-5 h-5" />
           </button>
-		<div className="text-center text-sm text-gray-500 mt-2">
-			Have an account?
-				<Link
-					href="/login"
-					className="text-white font-bold ml-1 hover:underline"
-				>
-					Log in
-				</Link>
-		</div>
+          <div className="text-center text-sm text-gray-500 mt-2">
+            Have an account?
+            <Link
+              href="/login"
+              className="text-white font-bold ml-1 hover:underline"
+            >
+              Log in
+            </Link>
+          </div>
         </form>
       </div>
     </section>

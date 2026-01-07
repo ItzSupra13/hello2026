@@ -196,7 +196,8 @@ export default function Hero() {
                 <React.Fragment key={item.label}>
                   <div className="flex flex-col items-center gap-1 sm:gap-2">
                     <span className="font-mono text-3xl sm:text-4xl md:text-5xl text-white tracking-widest font-bold leading-none tabular-nums">
-                      {formatTime(item.value)}
+                      {/* {formatTime(item.value)} */}
+                      XX
                     </span>
                     <span className="text-[10px] sm:text-xs font-bold text-gray-500 uppercase tracking-widest">
                       {item.label}

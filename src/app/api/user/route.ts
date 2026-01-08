@@ -1,4 +1,4 @@
-//Dashboard Endpoint
+//Dashboard Endpoint gets the user
 
 import { NextResponse} from 'next/server';
 import connectToDatabase from '@/lib/mongodb';
@@ -23,8 +23,8 @@ export async function GET() {
             return NextResponse.json({ error: 'User not found' }, { status: 404 });
         }
         return NextResponse.json(user, { status: 200 });
-    } catch (error) {
-        console.log(error);
+    } catch{
+        // console.log(error);
         return NextResponse.json({ error: 'Internal Server Error' }, { status: 500 });
     }
 }

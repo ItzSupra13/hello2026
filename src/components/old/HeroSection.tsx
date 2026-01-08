@@ -3,6 +3,7 @@
 // Event name
 
 import Image from "next/image";
+import Link from "next/link"
 
 // Tagline
 
@@ -58,7 +59,7 @@ export default function HeroSection() {
     
                     {/* CTA Button */}
                     <div className="mt-8">
-                        <a
+                        <Link
                             className="group relative inline-flex items-center justify-center
                                 px-10 py-5 text-xl md:text-2xl font-bold
                                 rounded-full overflow-hidden
@@ -84,7 +85,7 @@ export default function HeroSection() {
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
                                 </svg>
                             </span>
-                        </a>
+                        </Link>
                     </div>
     
                     {/* Date and Location */}

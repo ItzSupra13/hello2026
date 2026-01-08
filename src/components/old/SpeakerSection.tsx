@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { Card, CardContent } from "@/components/ui/card";
+import Link from "next/link";
 
 export default function SpeakerSection() {
     const speakers = [
@@ -43,7 +44,7 @@ export default function SpeakerSection() {
             {/* Speakers Grid */}
             <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-4">
                 {speakers.map((speaker, index) => (
-                    <a 
+                    <Link
                         key={index}
                         href={speaker.link} 
                         target="_blank" 
@@ -92,7 +93,7 @@ export default function SpeakerSection() {
                                 </div>
                             </CardContent>
                         </Card>
-                    </a>
+                    </Link>
                 ))}
             </div>
 

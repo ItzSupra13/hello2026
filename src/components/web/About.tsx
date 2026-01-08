@@ -115,7 +115,7 @@ export default function About() {
                     <div className="lg:col-span-9 flex flex-col gap-24">
 
                         {/* Headline */}
-                        <h2 ref={titleRef} className="text-3xl sm:text-1xl md:text-2xl lg:text-3xl font-medium tracking-tight leading-[1.1]">
+                        <h2 ref={titleRef} className="text-2xl sm:text-xl md:text-2xl lg:text-3xl font-medium tracking-tight leading-[1.1]">
                             <span className="inline-block text-gray-400 mr-3">At IEEE JUSB, we&apos;re more than just a student chapter - we&apos;re a dynamic community of</span>
                             <span className="inline-block font-bold text-black mr-3">innovators, creators,</span>
                             <span className="inline-block font-bold text-black mr-3">and problem-solvers</span>
@@ -136,7 +136,7 @@ export default function About() {
                                         0
                                     </span>
                                     <div className="flex items-start gap-2 ">
-                                        <stat.icon className="w-5 h-5 text-[#3B82F6]" strokeWidth={2.5} />
+                                        <stat.icon className="w-5 h-5 text-[#8EC5FF]" strokeWidth={2.5} />
                                         <span className="text-sm md:text-base font-bold tracking-widest text-gray-600 uppercase group-hover:text-black transition-colors">
                                             {stat.label}
                                         </span>

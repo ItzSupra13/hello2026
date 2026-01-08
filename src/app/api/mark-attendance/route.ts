@@ -19,7 +19,7 @@ export async function POST(req: NextRequest) {
         // console.log("Checking Secret Key:", qrData.secretKey === SECRET_KEY);
 
         const user = await User.findOne({ email: qrData.userEmail });
-        // console.log("User Query Result:", user);
+        console.log("User Query Result:", user);
 
         if (!qrData) {
             return NextResponse.json({ error: "Invalid QR data" }, { status: 400 });

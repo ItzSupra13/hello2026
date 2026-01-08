@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
-import Footer from '../components/Footer'
+import "../globals.css";
+import Footer from '@/components/old/Footer'
+import { Toaster } from "@/components/ui/sonner"
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -24,10 +25,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning className="scroll-smooth">
       <body className={`${geistSans.variable} ${geistMono.variable} animate-gradient`} style={{ backgroundImage: "linear-gradient(to right, #1e1b4b, black)", color: "white"}}>
         {children}
-        <Footer />
+        <Toaster richColors position="bottom-right"/>
+        <Footer/>
       </body>
     </html>
   );

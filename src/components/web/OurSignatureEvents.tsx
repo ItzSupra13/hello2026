@@ -37,7 +37,7 @@ export default function OurSignatureEvents(){
     {
       name: "Double // Slash",
       role: "Double Slash, organised by IEEE JUSB is Jadavpur University's first ever offline 24 hour hackathon. Here different tracks are provided for the participants. Double Slash attracts uniqueness and creativity packaged in the form of coding and reasoning. IEEE JUSB is going to soon present Double Slash with a bang, so interested participants may as well start to gear up!",
-      image: "/about/doubleslash.png"
+      image: "/about/doubleslash4.png"
     },
     {
       name: "Cypher 3331",
@@ -65,7 +65,7 @@ export default function OurSignatureEvents(){
           <div className="flex flex-col items-start gap-8">
              {/* Label */}
              <div className="flex items-center gap-3">
-               <svg width="40" height="10" viewBox="0 0 40 10" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-8 h-3 text-[#3B82F6]">
+               <svg width="40" height="10" viewBox="0 0 40 10" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-8 h-3 text-[#8EC5FF]">
                   <path d="M1 5C1 5 4.5 1 8.5 5C12.5 9 16 5 16 5C16 5 19.5 1 23.5 5C27.5 9 31 5 31 5C31 5 34.5 1 38.5 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>
                <span className="text-sm font-bold tracking-widest uppercase text-black">EVENTS BY US</span>
@@ -78,7 +78,7 @@ export default function OurSignatureEvents(){
 
              {/* Description */}
              <p className="text-xl text-gray-500 font-medium max-w-sm leading-relaxed">
-                Hear from some of the best minds across technology and sustainability.
+                From mentor-guided hackathons to hands-on workshops – keeping the fire of innovation and learning alive at Jadavpur University.
              </p>
           </div>
         </div>
@@ -89,13 +89,13 @@ export default function OurSignatureEvents(){
                 {speakers.map((speaker, index) => (
                     <div key={index} className="flex flex-col gap-6 group">
                         {/* Image Card */}
-                        <div className="aspect-[3/4] w-full rounded-2xl overflow-hidden bg-gray-100 relative">
+                        <div className="aspect-[4/3] w-full rounded-2xl overflow-hidden bg-gray-100 relative">
                             <Image
                                 src={speaker.image}
                                 alt={speaker.name}
                                 fill
                                 sizes="(min-width: 1024px) 50vw, 100vw"
-                                className="object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
+                                className="object-cover md:grayscale md:group-hover:grayscale-0 transition-all duration-500 bg-black"
                             />
 
                         </div>

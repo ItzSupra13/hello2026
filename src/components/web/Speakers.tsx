@@ -88,13 +88,6 @@ export default function Speakers() {
               {/* TEASER POSTER CONTAINER */}
               <div className="w-full aspect-[4/5] relative overflow-hidden bg-[#050505] border border-white/10 flex flex-col items-center justify-center p-6 transition-all duration-500 hover:border-[#3B82F6]/30 hover:shadow-[0_0_30px_rgba(59,130,246,0.1)]">
                  
-                 {/* Technical Grid Background */}
-                 <div className="absolute inset-0 opacity-20" 
-                      style={{ 
-                          backgroundImage: 'linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)', 
-                          backgroundSize: '40px 40px' 
-                      }}>
-                 </div>
                  {/* Subtle Radial Gradient Glow */}
                  <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-blue-900/20 via-transparent to-transparent opacity-60"></div>
 

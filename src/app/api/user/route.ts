@@ -11,10 +11,15 @@ export async function GET() {
         const authToken = (await cookies()).get('authToken')?.value;
         
         if (!authToken) {
-            return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+            return NextResponse.json(
+                { error: 'Unauthorized' },
+                { status: 401 });
         }
         
-        const decoded: { userId: string} = jwt.verify(authToken, process.env.JWT_SECRET as string) as { userId: string };
+        const decoded: { userId: string} = jwt.verify(
+            authToken, 
+            process.env.JWT_SECRET!
+        ) as { userId: string };
 
         await connectToDatabase();
         const user = await User.findOne({ _id: decoded.userId }).select('-password -__v');
@@ -25,7 +30,10 @@ export async function GET() {
         return NextResponse.json(user, { status: 200 });
     } catch{
         // console.log(error);
-        return NextResponse.json({ error: 'Internal Server Error' }, { status: 500 });
+        return NextResponse.json(
+            { error: 'Internal Server Error' },
+            { status: 500 }
+        );
     }
 }
 

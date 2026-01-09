@@ -1,10 +1,11 @@
 "use client"
 
 import { useEffect, useRef } from 'react';
-import { ArrowRight } from 'lucide-react';
+import { MessageCircle } from 'lucide-react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Link from 'next/link';
+import Image from 'next/image';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -125,12 +126,12 @@ export default function WhatToExpect() {
                   ))}
 
                   {/* Special CTA Card (Black) */}
-                  <div className="flex flex-col justify-between p-8 min-h-[400px] md:min-h-[500px] bg-black text-white rounded-2xl relative overflow-hidden group shadow-2xl">
+                  <div className="flex flex-col justify-between p-8 min-h-[400px] md:min-h-[500px] bg-black rounded-2xl relative overflow-hidden group shadow-2xl">
                      {/* Background Gradient/Sheen Effect */}
-                     <div className="absolute inset-0 bg-gradient-to-br from-blue-900/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
+                     <div className="absolute inset-0 bg-gradient-to-br from-[#128C7E]/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
                      
                     <div className="flex justify-between w-full z-10">
-                      <h3 className="text-3xl md:text-4xl font-bold leading-tight tracking-tight">
+                      <h3 className="text-3xl text-[#25D366] md:text-4xl font-bold leading-tight tracking-tight">
                         Want to be involved?
                       </h3>
                       {/* Squiggle Icon */}
@@ -138,21 +139,24 @@ export default function WhatToExpect() {
                           <path d="M2 7C2 7 8.5 1 14.5 7C20.5 13 27 7 27 7C27 7 33.5 1 39.5 7C45.5 13 52 7 52 7" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
                       </svg>
                     </div>
-                    
                     <div className="mt-auto z-10">
-                    <Link href="/register">
-                    <button className="flex items-center gap-2 
-                        bg-white text-black 
-                        px-5 py-2.5 
-                        rounded-full 
-                        font-semibold text-base md:text-lg 
-                        hover:bg-[#8EC5FF]
-                        transition-colors duration-300 w-fit"
-                    >
-                        <ArrowRight className="w-5 h-5" />
-                        <span>Register!</span>
-                      </button>
-                    </Link>
+                      <Link 
+                        href="https://chat.whatsapp.com/JklVpCtsiOz8k2Jgjo3z8X" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                      >
+                        <button className="flex items-center gap-2 
+                            bg-[#25D366] text-white text-left
+                            px-5 py-2.5
+                            rounded-full 
+                            font-semibold text-base
+                            hover:bg-[#25D366]/95
+                            transition-colors duration-300 w-fit"
+                        >
+                          <Image width={20} height={20} src="/logos/whatsapp.png" alt='Whatsapp Link'/>
+                          <span>Join Group</span>
+                        </button>
+                      </Link>
                     </div>
                   </div>
 

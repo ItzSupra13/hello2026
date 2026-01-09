@@ -11,20 +11,20 @@ interface IUser extends Document {
   year?: string;
   attendance: boolean;
   registeredAt: Date;
-  attendanceMarkedAt: Date;
+  attendanceMarkedAt: Date | null;
   comparePassword: (password: string) => Promise<boolean>;
 } //interface due to TS
 
 const UserSchema = new Schema<IUser>({
-  name: { type: String, required: true },
-  email: { type: String, unique: true, required: true },
+  name: { type: String, required: true, index: true },
+  email: { type: String, unique: true, required: true, index: true },
   password: { type: String, required: true },
-  phone: {type: String, unique: true, required: true},
+  phone: { type: String, unique: true, required: true },
   university: { type: String },
-  department: { type: String },
+  department: { type: String, index: true },
   year: { type: String },
   attendance: { type: Boolean, default: false, index: true },
-  registeredAt: { type: Date, default: Date.now },
+  registeredAt: { type: Date, default: Date.now, index: true },
   attendanceMarkedAt: { type: Date, default: null },
 });
 

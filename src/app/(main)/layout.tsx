@@ -26,7 +26,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning className="scroll-smooth">
-      <body className={`${geistSans.variable} ${geistMono.variable} animate-gradient`} style={{ backgroundImage: "linear-gradient(to right, #1e1b4b, black)", color: "white"}}>
+      <body className={`${geistSans.variable} ${geistMono.variable} animate-gradient text-white bg-gradient-to-r from-[#1e1b4b] to-black`}>
         {children}
         <Toaster richColors position="bottom-right"/>
         <Footer/>

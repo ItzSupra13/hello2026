@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   description: "An event management website for IEEE JUSB's Hello IEEE Event!",
 };
 
-export default function AuthLayout({
+export default function Adminayout({
   children,
 }: Readonly<{
   children: React.ReactNode;

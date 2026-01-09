@@ -28,7 +28,7 @@ export default function AuthLayout({
   return (
     <html lang="en" suppressHydrationWarning className="scroll-smooth">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} animate-gradient text-white bg-black`}
+        className={`${geistSans.variable} ${geistMono.variable} animate-gradient text-white bg-[#020617]`}
       >
         {/* Top Navigation Button */}
         <div className="w-full px-6 pt-8">
@@ -45,3 +45,5 @@ export default function AuthLayout({
     </html>
   );
 }
+
+//all of this separate route grouping for a f*cking bg color match of login and dashboard pages istg i cant think of anything else

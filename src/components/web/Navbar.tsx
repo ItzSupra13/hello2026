@@ -18,7 +18,7 @@ import { useRouter } from "next/navigation";
 
 export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const { loading, authenticated } = useAuth();
+  const { loading, authenticated, admin } = useAuth();
   const [user, setUser] = useState<any>(null);
   const router = useRouter();
 
@@ -97,7 +97,7 @@ export default function Navbar() {
                   <button className="outline-none">
                     <GradientAvatar
                       seed={user?.email || "fallback"}
-                      name={user?.name}
+                      name={user?.name || "fallbackname"}
                       size={40}
                     />
                   </button>
@@ -110,7 +110,8 @@ export default function Navbar() {
                 >
                   <DropdownMenuItem
                     className="cursor-pointer font-semibold tracking-wide text-white data-[highlighted]:bg-transparent data-[highlighted]:text-[#3B82F6] focus:bg-transparent focus:text-[#3B82F6]"
-                    onClick={() => router.push("/dashboard")}
+                    onClick={() => {
+                      router.push(admin?"/admin/dashboard":"/dashboard")}}
                   >
                     Dashboard
                   </DropdownMenuItem>
@@ -118,7 +119,7 @@ export default function Navbar() {
                   <DropdownMenuItem
                     className="cursor-pointer font-semibold text-red-500 data-[highlighted]:bg-transparent data-[highlighted]:text-red-500 focus:bg-transparent focus:text-red-500"
                     onClick={async () => {
-                      await fetch("/api/logout", { method: "POST" });
+                      await fetch(admin?"/api/admin/logout":"/api/logout", { method: "POST" });
                       router.replace("/login");
                     }}
                   >
@@ -170,7 +171,7 @@ export default function Navbar() {
             {(!loading && authenticated) &&
               (<>
                 <div className="border-t border-gray-800 pt-4 flex justify-center">
-                  <Link href="/dashboard" className="flex items-center gap-2 text-white hover:text-[#8EC5FF] font-bold uppercase text-sm tracking-widest">
+                  <Link href={admin?"/admin/dashboard":"/dashboard"} className="flex items-center gap-2 text-white hover:text-[#8EC5FF] font-bold uppercase text-sm tracking-widest">
                     Dashboard
                   </Link>
                 </div>
@@ -179,7 +180,7 @@ export default function Navbar() {
                     <button
                       className="text-red-500 hover:text-red-400 font-bold uppercase text-sm tracking-widest"
                       onClick={async () => {
-                        await fetch("/api/logout", { method: "POST" });
+                        await fetch(admin?"/api/admin/logout":"/api/logout", { method: "POST" });
                         router.replace("/");
                       }}
                     >

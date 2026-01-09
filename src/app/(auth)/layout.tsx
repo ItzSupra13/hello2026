@@ -28,12 +28,7 @@ export default function AuthLayout({
   return (
     <html lang="en" suppressHydrationWarning className="scroll-smooth">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} animate-gradient`}
-        style={{
-          color: "white",
-          backgroundColor: "#020617",
-          border: "#020617"
-        }}
+        className={`${geistSans.variable} ${geistMono.variable} animate-gradient text-white bg-slate-950`}
       >
         {/* Top Navigation Button */}
         <div className="w-full px-6 pt-8">

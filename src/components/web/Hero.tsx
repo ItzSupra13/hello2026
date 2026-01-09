@@ -20,7 +20,7 @@ export default function Hero() {
     minutes: 0,
     seconds: 0
   });
-  const { loading, authenticated } = useAuth();
+  const { loading, authenticated, admin } = useAuth();
 
   useEffect(() => {
     // Set target date to June 14, 2026
@@ -265,7 +265,7 @@ export default function Hero() {
               )}
             {(!loading && authenticated) &&
               (<>
-                <Link href='/dashboard'>
+                <Link href={admin?'/admin/dashboard':'/dashboard'}>
                   {/* Rectangular Button (Matching Image) */}
                   <button className="cta-btn group relative overflow-hidden min-w-[320px] w-full md:w-auto px-8 py-6 flex items-center justify-between shadow-2xl border border-white/10 bg-[#0f0f0f] text-white cursor-pointer">
                     {/* liquid layer */}

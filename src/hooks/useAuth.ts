@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 export function useAuth() {
   const [loading, setLoading] = useState(true);
   const [authenticated, setAuthenticated] = useState(false);
+  const [admin, setAdmin] = useState(false)
 
   useEffect(() => {
     const check = async () => {
@@ -10,6 +11,7 @@ export function useAuth() {
         const res = await fetch("/api/me", { credentials: "include" });
         const data = await res.json();
         setAuthenticated(data.authenticated);
+        setAdmin(data.admin);
       } finally {
         setLoading(false);
       }
@@ -18,5 +20,5 @@ export function useAuth() {
     check();
   }, []);
 
-  return { loading, authenticated };
+  return { loading, authenticated, admin };
 }

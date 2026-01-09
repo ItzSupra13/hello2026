@@ -3,6 +3,7 @@ import connectToDatabase from "@/lib/mongodb";
 import User from "@/models/user";
 import jwt from "jsonwebtoken";
 import { sendRegistrationEmail } from "@/lib/email";
+import { toast } from "sonner";
 
 export async function POST(req: NextRequest) {
   try {
@@ -32,7 +33,6 @@ export async function POST(req: NextRequest) {
 
     await sendRegistrationEmail(email, name, phone, department);
 
-    // issue auth cookie like login
     const token = jwt.sign(
       { userId: newUser._id, email: newUser.email },
       process.env.JWT_SECRET as string,
@@ -56,7 +56,7 @@ export async function POST(req: NextRequest) {
 
     return response;
   } catch {
-    // console.log("Error during registration:", error);
+    toast.error("Something went wrong")
     return NextResponse.json(
       { error: "Something went wrong" },
       { status: 500 }

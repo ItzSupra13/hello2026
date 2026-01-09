@@ -331,7 +331,7 @@ const schema: yup.ObjectSchema<RegisterData> = yup.object({
 
   year: yup
     .string()
-    .matches(/^[0-9]{4}$/, "Enter a valid year")
+    .matches(/^202[4-9]{1}$/, "Enter a valid year between 2024 and 2029")
     .required("Year is required"),
 
   password: yup
@@ -440,10 +440,7 @@ export default function Register() {
         </svg>
       </div>
 
-      <div
-        className="absolute inset-0 z-10 pointer-events-none"
-        style={{ clipPath: "ellipse(90% 60% at 50% 100%)" }}
-      >
+      <div className="absolute inset-0 z-10 pointer-events-none [clip-path:ellipse(90%_60%_at_50%_100%)]">
         <div className="absolute inset-0 bg-[#3B82F6]" />
         <div className="absolute inset-0 hidden md:block">
           <svg width="100%" height="100%">

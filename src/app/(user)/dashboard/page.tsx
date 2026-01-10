@@ -461,7 +461,7 @@ async function handleSubmit() {
             <Dialog open={open} onOpenChange={setOpen}>
               <DialogContent className="bg-black/90 border-white/10">
                 <DialogHeader>
-                  <DialogTitle>Change password</DialogTitle>
+                  <DialogTitle className="text-white">Change password</DialogTitle>
                   <DialogDescription>
                     Choose a strong, memorable password.
                   </DialogDescription>
@@ -578,7 +578,7 @@ async function handleSubmit() {
                     </h3>
 
                     <p className="text-gray-500 text-sm mb-6">
-                      Scan the venue QR code to verify your attendance.
+                      <span className="text-[#8EC5FF]/80">Scan the venue QR code</span> to <span className="text-[#8EC5FF]/80">verify your attendance</span> and <span className="text-[#8EC5FF]/80">avail your refreshments</span>.
                     </p>
 
                     {!isScanning ? (

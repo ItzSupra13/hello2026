@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import { Toaster } from "@/components/ui/sonner";
 import Link from "next/link";
 import "../globals.css";
 import { ArrowLeft } from "lucide-react";
@@ -26,8 +25,7 @@ export default function AuthLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning className="scroll-smooth">
-      <body
+      <div
         className={`${geistSans.variable} ${geistMono.variable} animate-gradient text-white bg-slate-950`}
       >
         {/* Top Navigation Button */}
@@ -40,8 +38,6 @@ export default function AuthLayout({
           </Link>
         </div>
         {children}
-        <Toaster richColors position="bottom-right" />
-      </body>
-    </html>
+      </div>
   );
 }

@@ -14,6 +14,7 @@ const connectToDatabase = async () => {
   if (!global.mongoose.promise) {
     global.mongoose.promise = mongoose.connect(MONGODB_URI as string, {
       dbName: 'hello-ieee-2', 
+      autoIndex: process.env.NODE_ENV !== "production",
     }).then((mongooseInstance) => mongooseInstance.connection);
   }
 

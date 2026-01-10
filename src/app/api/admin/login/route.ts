@@ -1,11 +1,11 @@
 import { NextResponse } from "next/server";
-import bcrypt from "bcryptjs";
+import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 
 export async function POST(req: Request) {
     try{
         const { email, password } = await req.json();
-        const isValidPassword = bcrypt.compare(password, process.env.ADMIN_PASSWORD_HASH || "");
+        const isValidPassword = await bcrypt.compare(password, ("$2b$10$" + process.env.ADMIN_PASSWORD!.trim()));
         const isValidEmail = email === process.env.ADMIN_EMAIL;
         if ( !isValidEmail || !isValidPassword) {
             return NextResponse.json(

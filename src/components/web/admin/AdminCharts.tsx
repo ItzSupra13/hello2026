@@ -1,6 +1,5 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import {
   PieChart,
   Pie,
@@ -13,23 +12,26 @@ import {
   Tooltip
 } from "recharts";
 import { BarChart3 } from "lucide-react";
+interface DashboardStats {
+  totals: {
+    registered: number;
+    attended: number;
+  };
+  departmentWise: Array<{
+    department: string;
+    count: number;
+  }>;
+  registrationsByDay: Array<{
+    date: string;
+    count: number;
+  }>;
+}
 
 const COLORS = ["#3B82F6", "#8B5CF6", "#10B981", "#F59E0B", "#EF4444"];
 
-export default function AdminCharts() {
-  const [data, setData] = useState<any>(null);
+export default function AdminCharts({stats}: {stats: DashboardStats | null}) {
 
-  useEffect(() => {
-    async function fetchStats() {
-      const res = await fetch("/api/admin/stats");
-      const json = await res.json();
-      setData(json);
-  }
-  fetchStats();
-}, []);
-
-
-  if (!data) return null;
+  if (!stats) return <div className="text-white/20">Loading Charts...</div>;
 
   return (
     <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
@@ -43,13 +45,13 @@ export default function AdminCharts() {
         <ResponsiveContainer width="100%" height={300}>
           <PieChart>
             <Pie
-              data={data.departmentWise}
+              data={stats.departmentWise}
               dataKey="count"
               nameKey="department"
               outerRadius={100}
               label
             >
-              {data.departmentWise.map((_: any, i: number) => (
+              {stats.departmentWise.map((_: any, i: number) => (
                 <Cell key={i} fill={COLORS[i % COLORS.length]} />
               ))}
             </Pie>
@@ -68,7 +70,7 @@ export default function AdminCharts() {
         </div>
 
         <ResponsiveContainer width="100%" height={300}>
-          <BarChart data={data.registrationsByDay}>
+          <BarChart data={stats.registrationsByDay}>
             <XAxis dataKey="date" />
             <YAxis allowDecimals={false} />
             <Tooltip />

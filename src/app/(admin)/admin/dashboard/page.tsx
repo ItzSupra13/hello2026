@@ -5,21 +5,41 @@ import { toast } from "sonner";
 import { RotateCw, LogOut } from "lucide-react";
 
 import AdminStats from "@/components/web/admin/AdminStats";
-import AdminCharts from "@/components/web/admin/AdminCharts";
 import ListUsers from "@/components/web/admin/ListUsers";
+import { useEffect, useState } from "react";
+import dynamic from "next/dynamic";
+
+const AdminCharts = dynamic(() => import("@/components/web/admin/AdminCharts"), {
+  ssr: false,
+  loading: () => (
+    <div className="h-[400px] w-full flex items-center justify-center bg-white/5 rounded-xl animate-pulse">
+      <p className="text-white/20">Loading Visualizations...</p>
+    </div>
+  ),
+});
 
 export default function AdminDashboard() {
   const router = useRouter();
-
+  const [stats, setStats] = useState(null)
   const handleLogout = async () => {
     try {
       await fetch("/api/admin/logout", { method: "POST" });
       toast.success("Logged out successfully");
-      router.replace("/login");
+      router.replace("/admin/login");
     } catch {
       toast.error("Logout failed");
     }
   };
+
+    useEffect(() => {
+    async function fetchStats() {
+      const res = await fetch("/api/admin/stats");
+      const json = await res.json();
+      setStats(json);
+    }
+    fetchStats();
+  }, []);
+
 
   return (
     <section className="min-h-screen bg-black text-white px-6 py-8">
@@ -56,8 +76,8 @@ export default function AdminDashboard() {
             </button>
           </div>
         </div>
-        <AdminStats />
-        <AdminCharts />
+        <AdminStats stats={stats} />
+        <AdminCharts stats={stats}/>
         <ListUsers />
       </div>
     </section>

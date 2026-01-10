@@ -1,19 +1,7 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
-import { Toaster } from "@/components/ui/sonner";
 import Link from "next/link";
 import "../globals.css";
 import { ArrowLeft } from "lucide-react";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
 
 export const metadata: Metadata = {
   title: "Hello IEEE 2026 | IEEE JUSB",
@@ -26,10 +14,7 @@ export default function AuthLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning className="scroll-smooth">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} animate-gradient text-white bg-black`}
-      >
+      <div className={`text-white bg-black`}>
         {/* Top Navigation Button */}
         <div className="w-full px-6 pt-8">
           <Link
@@ -40,8 +25,6 @@ export default function AuthLayout({
           </Link>
         </div>
         {children}
-        <Toaster richColors position="bottom-right" />
-      </body>
-    </html>
+    </div>
   );
 }

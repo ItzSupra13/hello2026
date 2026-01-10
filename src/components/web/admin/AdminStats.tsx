@@ -1,16 +1,22 @@
 "use client";
-
-import { useEffect, useState } from "react";
 import { Users, UserCheck } from "lucide-react";
 
-export default function AdminStats() {
-  const [stats, setStats] = useState<any>(null);
+interface DashboardStats {
+  totals: {
+    registered: number;
+    attended: number;
+  };
+  departmentWise: Array<{
+    department: string;
+    count: number;
+  }>;
+  registrationsByDay: Array<{
+    date: string;
+    count: number;
+  }>;
+}
 
-  useEffect(() => {
-    fetch("/api/admin/stats")
-      .then(res => res.json())
-      .then(setStats);
-  }, []);
+export default function AdminStats({stats}: {stats: DashboardStats | null}) {
 
   if (!stats) return null;
 

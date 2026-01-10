@@ -12,8 +12,6 @@ export async function GET() {
       User.countDocuments({ attendance: true })
     ]);
 
-    const pending = registered - attended;
-
     /* ---------- DEPARTMENT PIE ---------- */
     const departmentWise = await User.aggregate([
       {
@@ -68,7 +66,6 @@ export async function GET() {
       totals: {
         registered,
         attended,
-        pending
       },
       departmentWise,
       registrationsByDay

@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Hello IEEE 2026 | IEEE JUSB",
-  description: "An event management website for IEEE JUSB's Hello IEEE Event!",
+  description: "Dive into the world where dreams become true, hand in hand with us as we attempt to enlighten your path with HELLO IEEE!",
 };
 
 export default function RootLayout({
